@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,11 +8,30 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyName>DeskMind.Core</AssemblyName>
     <RootNamespace>DeskMind.Core</RootNamespace>
-    <Company>AI Bridge</Company>
-    <Product>AI Bridge</Product>
+    <Company></Company>
+    <Product>DeskMind</Product>
     <Authors>Sachith Liyanagama</Authors>
-    <Description>Core library for AI Bridge, providing essential functionalities and integrations.</Description>
+    <Description>Core library for DeskMind, providing essential functionalities and integrations.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>Copyright © 2025 Sachith Harshitha Liyanagama</Copyright>
+    <PackageProjectUrl>https://github.com/DeskMind</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/DeskMind/DeskMind.SDK</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.65.0" />
