@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>DeskMind.Core</AssemblyName>
+    <RootNamespace>DeskMind.Core</RootNamespace>
+    <Company>AI Bridge</Company>
+    <Product>AI Bridge</Product>
+    <Authors>Sachith Liyanagama</Authors>
+    <Description>Core library for AI Bridge, providing essential functionalities and integrations.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.65.0" />
+  </ItemGroup>
+
+</Project>
+
+
