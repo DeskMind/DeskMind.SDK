@@ -1,4 +1,5 @@
 using Microsoft.SemanticKernel;
+using Microsoft.Extensions.Logging;
 
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,19 @@ namespace DeskMind.Core.Plugins
 
         protected abstract KernelPlugin CreatePluginCore();
 
+        public ILogger? Logger { get; set; }
+
         public void UpdateSecurityState(Security.SecurityPolicy policy, string userId)
         {
             var requiredRoles = Metadata.RequiredRoles;
+            var prev = _isEnabled;
             _isEnabled = requiredRoles == null || requiredRoles.Length == 0 ||
                        policy.Approve(userId, requiredRoles);
+
+            if (Logger != null)
+            {
+                Logger.LogTrace("Factory {Factory} security updated. WasEnabled={Was}, NowEnabled={Now}", Metadata?.Name ?? GetType().FullName, prev, _isEnabled);
+            }
         }
 
         public void RemoveFromKernel(Kernel kernel)
@@ -42,6 +51,10 @@ namespace DeskMind.Core.Plugins
             if (_plugin != null)
             {
                 kernel.Plugins.Remove(_plugin);
+                if (Logger != null)
+                {
+                    Logger.LogTrace("Removed plugin {Plugin} from kernel", Metadata?.Name ?? GetType().FullName);
+                }
                 _plugin = null;
             }
         }
@@ -71,9 +84,10 @@ namespace DeskMind.Core.Plugins
                 Configurations = JsonSerializer.Deserialize<List<PluginConfig>>(json)
                                  ?? new List<PluginConfig>();
             }
-            catch
+            catch (Exception ex)
             {
                 Configurations = new List<PluginConfig>();
+                Logger?.LogWarning(ex, "Failed to load configuration for {Factory}", Metadata?.Name ?? GetType().FullName);
             }
             finally
             {
@@ -89,12 +103,14 @@ namespace DeskMind.Core.Plugins
         {
             var path = GetConfigFilePath();
             // Create directory if not exists
-            if (!Directory.Exists(Path.GetDirectoryName(path)))
+            var dir = Path.GetDirectoryName(path);
+            if (!Directory.Exists(dir))
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+                Directory.CreateDirectory(dir!);
             }
             var json = JsonSerializer.Serialize(Configurations);
             File.WriteAllText(path, json);
+            Logger?.LogInformation("Saved configuration for {Factory}", Metadata?.Name ?? GetType().FullName);
         }
 
         protected virtual List<PluginConfig> GetDefaultConfigurations()
@@ -130,9 +146,9 @@ namespace DeskMind.Core.Plugins
                     return (T)converter.ConvertFromInvariantString(entry.SerializedValue);
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // swallow and return default
+                Logger?.LogWarning(ex, "Failed to convert configuration value {Name} for {Factory}", name, Metadata?.Name ?? GetType().FullName);
             }
 
             return defaultValue;
@@ -141,4 +157,3 @@ namespace DeskMind.Core.Plugins
         #endregion Plugin Configuration
     }
 }
-

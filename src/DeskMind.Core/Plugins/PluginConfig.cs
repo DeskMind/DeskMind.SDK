@@ -1,10 +1,21 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace DeskMind.Core.Plugins
 {
-    public class PluginConfig
+    public partial class PluginConfig : ObservableObject
     {
-        public string Name { get; set; }
-        public string DataType { get; set; }
-        public string SerializedValue { get; set; }
+        [ObservableProperty]
+        private string _name = string.Empty;
+
+        [ObservableProperty]
+        private string _dataType = typeof(string).FullName;
+
+        [ObservableProperty]
+        private string _serializedValue = string.Empty;
+
+        public PluginConfig()
+        {
+        }
 
         public PluginConfig(string name, string dataType, string serializedValue)
         {
@@ -14,4 +25,3 @@ namespace DeskMind.Core.Plugins
         }
     }
 }
-

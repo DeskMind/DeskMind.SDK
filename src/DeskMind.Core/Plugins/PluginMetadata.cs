@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DeskMind.Core.Plugins
 {
@@ -9,6 +10,8 @@ namespace DeskMind.Core.Plugins
         public string Description { get; set; } = string.Empty;
         public string[] RequiredRoles { get; set; } = Array.Empty<string>();
         public string[] Dependencies { get; set; } = Array.Empty<string>();
+
+        // Optional default prompts to show in chat when history is empty
+        public DefaultPrompt[] DefaultPrompts { get; set; } = Array.Empty<DefaultPrompt>();
     }
 }
-

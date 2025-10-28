@@ -6,6 +6,8 @@ namespace DeskMind.Core.UI
     {
         string PluginName { get; }
 
+        object PluginIcon { get; }
+
         /// <summary>
         /// Creates a UI control for the plugin.
         /// For WPF: returns UserControl
@@ -15,4 +17,3 @@ namespace DeskMind.Core.UI
         object CreateControl(SecurePluginFactoryBase factory);
     }
 }
-
