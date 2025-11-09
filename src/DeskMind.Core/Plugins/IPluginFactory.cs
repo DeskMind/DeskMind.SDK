@@ -35,4 +35,3 @@ namespace DeskMind.Core.Plugins
         //public virtual IPluginUIFactory? CreateUIFactory() => null;
     }
 }
-
