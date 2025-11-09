@@ -1,5 +1,7 @@
 using DeskMind.Core.Plugins;
 
+using System;
+
 namespace DeskMind.Core.UI
 {
     public interface IPluginUIProvider
@@ -7,6 +9,8 @@ namespace DeskMind.Core.UI
         string PluginName { get; }
 
         object PluginIcon { get; }
+
+        Type TargetPageType { get; }
 
         /// <summary>
         /// Creates a UI control for the plugin.
