@@ -54,7 +54,7 @@ namespace DeskMind.Rag.Models
         /// </summary>
         [VectorStoreVector(
             Dimensions: RagEmbeddingConfig.Dimensions,
-            DistanceFunction = DistanceFunction.CosineSimilarity,
+            DistanceFunction = DistanceFunction.CosineDistance,
             IndexKind = IndexKind.Hnsw)]
         public ReadOnlyMemory<float> Embedding { get; set; }
     }

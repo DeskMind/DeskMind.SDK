@@ -16,7 +16,7 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0 " />
 		<PackageReference Include="Microsoft.Extensions.VectorData.Abstractions" Version="9.7.0" />
 		<PackageReference Include="Microsoft.SemanticKernel" Version="1.67.1" />
-		<PackageReference Include="PdfPig" Version="0.1.12" />
+		<PackageReference Include="PdfPig" Version="0.1.13-alpha-20251114-005e5" />
 	</ItemGroup>
 
 	<ItemGroup>

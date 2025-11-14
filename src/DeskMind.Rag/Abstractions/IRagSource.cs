@@ -11,7 +11,7 @@ namespace DeskMind.Rag.Abstractions
     {
         string Name { get; }
 
-        IVectorMemory VectorMemory { get; }
+        IVectorMemory Memory { get; }
 
         IDocumentIngestionService Ingestion { get; }
 

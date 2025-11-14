@@ -10,14 +10,11 @@ namespace DeskMind.Rag.Hosting
 {
     public sealed class RagHub : IRagHub
     {
-        private readonly IVectorMemoryResolver _memoryResolver;
-
         private readonly ConcurrentDictionary<string, IRagSource> _sources =
             new(StringComparer.OrdinalIgnoreCase);
 
-        public RagHub(IVectorMemoryResolver memoryResolver /*, other services */)
+        public RagHub()
         {
-            _memoryResolver = memoryResolver;
         }
 
         public IReadOnlyCollection<string> Sources => [.. _sources.Keys];
