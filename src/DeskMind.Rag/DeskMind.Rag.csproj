@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <Nullable>enable</Nullable>
+	  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	  <AssemblyName>DeskMind.Rag</AssemblyName>
+	  <RootNamespace>DeskMind.Rag</RootNamespace>
+	  <Product>DeskMind</Product>
+	  <Authors>Sachith Liyanagama</Authors>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0 " />
+		<PackageReference Include="Microsoft.Extensions.VectorData.Abstractions" Version="9.7.0" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.67.1" />
+		<PackageReference Include="PdfPig" Version="0.1.12" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\DeskMind.Core\DeskMind.Core.csproj" />
+	</ItemGroup>
+</Project>

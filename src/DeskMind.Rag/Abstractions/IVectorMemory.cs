@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DeskMind.Rag.Models;
+
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DeskMind.Core.RAG
+namespace DeskMind.Rag.Abstractions
 {
     // ─────────────────────────────────────────────────────────────────────────────
     // Vector Memory (Storage & Similarity)
@@ -14,6 +16,12 @@ namespace DeskMind.Core.RAG
     /// </summary>
     public interface IVectorMemory
     {
+        /// <summary>
+        /// Logical name of this memory (e.g. "local", "projects").
+        /// Used by <see cref="IVectorMemoryResolver"/> to select a memory.
+        /// </summary>
+        string Name { get; }
+
         /// <summary>Dimensionality expected by this store.</summary>
         int Dimensions { get; }
 

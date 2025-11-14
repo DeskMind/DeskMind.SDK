@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using DeskMind.Rag.Models;
+
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DeskMind.Core.RAG
+namespace DeskMind.Rag.Abstractions
 {
     // ─────────────────────────────────────────────────────────────────────────────
     // Retrieval (Optional Facade)
