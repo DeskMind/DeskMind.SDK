@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DeskMind.Core.RAG
+namespace DeskMind.Rag.Abstractions
 {
     /// <summary>
     /// Aggregates retrieval and ingestion for a single logical RAG source.
@@ -11,7 +11,7 @@ namespace DeskMind.Core.RAG
     {
         string Name { get; }
 
-        IVectorMemory VectorMemory { get; }
+        IVectorMemory Memory { get; }
 
         IDocumentIngestionService Ingestion { get; }
 

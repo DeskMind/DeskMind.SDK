@@ -1,8 +1,9 @@
-﻿using System.Text;
+﻿using DeskMind.Rag.Models;
+
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DeskMind.Core.RAG
+namespace DeskMind.Rag.Abstractions
 {
     // ─────────────────────────────────────────────────────────────────────────────
     // Extraction & Splitting

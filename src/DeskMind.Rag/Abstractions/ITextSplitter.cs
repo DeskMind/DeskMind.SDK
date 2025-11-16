@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using DeskMind.Rag.Models;
 
-namespace DeskMind.Core.RAG
+using System.Collections.Generic;
+
+namespace DeskMind.Rag.Abstractions
 {
     // ─────────────────────────────────────────────────────────────────────────────
     // Extraction & Splitting
